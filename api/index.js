@@ -19,9 +19,10 @@ async function startDatabase() {
 }
 
 async function getDatabase() {
-    if (!database) await startDatabase();
+  if (!database) await startDatabase();
     return database;
 }
+
 
 async function insertMeasurement(message) {
     const {insertedId} = await database.collection(collectionName).insertOne(message);
@@ -43,9 +44,15 @@ app.use(express.static('spa/static'));
 const PORT = 8080;
 
 app.post('/measurement', function (req, res) {
--       console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity    : " + req.body.h);	
-    const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, h:req.body.h});
+let now = new Date();
+        -       console.log("Device id: " + req.body.id + " Key: " + req.body.key + " Temp: " + req.body.t + " Humedad: " + req.body.h + " Presion: " + req.body.p + " Timestamp: " 
+       + now.getDate()+"-0" + (now.getMonth()+1) +"-2023  "+ (now.getHours()-3)+":" + now.getMinutes()+":" + now.getSeconds());	
+    const {insertedId} = insertMeasurement({id:req.body.id, key:req.body.key, t:req.body.t, h:req.body.h, p:req.body.p});
 	res.send("received measurement into " +  insertedId);
+	
+  console.log("Este es un mensaje de debug");
+
+  
 });
 
 app.post('/device', function (req, res) {

@@ -27,10 +27,12 @@
 
 /* HTTP constants that aren't configurable in menuconfig */
 #define WEB_PATH "/measurement"
+#define MAC_ADDR_SIZE 6
+#define DEBUG 
 
 static const char *TAG = "temp_collector";
 
-static char *BODY = "id="DEVICE_ID"&t=%0.2f&h=%0.2f";
+static char *BODY = "id=%s&key=%02x:%02x:%02x:%02x:%02x:%02x&t=%0.2f&h=%0.2f&p=%0.2f"; //agregue MAC ADDRESS y presion
 
 static char *REQUEST_POST = "POST "WEB_PATH" HTTP/1.0\r\n"
     "Host: "API_IP_PORT"\r\n"
@@ -49,7 +51,7 @@ static void http_get_task(void *pvParameters)
     struct addrinfo *res;
     struct in_addr *addr;
     int s, r;
-    char body[64];
+    char body[100]; //aca era 64
     char recv_buf[64];
 
     char send_buf[256];
@@ -67,16 +69,18 @@ static void http_get_task(void *pvParameters)
 
     float pressure, temperature, humidity;
 
-
+    uint8_t MA[MAC_ADDR_SIZE];
 
     while(1) {
+        esp_wifi_get_mac(ESP_IF_WIFI_STA, MA);//funcion que busca la MAC ADDRESS
+        ESP_LOGI("MAC address", "MAC address: %02x:%02x:%02x:%02x:%02x:%02x", MA[0], MA[1], MA[2], MA[3], MA[4], MA[5]);//muestra en consola del device
         if (bmp280_read_float(&dev, &temperature, &pressure, &humidity) != ESP_OK) {
             ESP_LOGI(TAG, "Temperature/pressure reading failed\n");
         } else {
             ESP_LOGI(TAG, "Pressure: %.2f Pa, Temperature: %.2f C", pressure, temperature);
 //            if (bme280p) {
                 ESP_LOGI(TAG,", Humidity: %.2f\n", humidity);
-		sprintf(body, BODY, temperature , humidity );
+		        sprintf(body, BODY, DEVICE_ID, MA[0], MA[1], MA[2], MA[3], MA[4], MA[5], temperature , humidity , pressure ); //agregue presion y MA
                 sprintf(send_buf, REQUEST_POST, (int)strlen(body),body );
 //	    } else {
 //                sprintf(send_buf, REQUEST_POST, temperature , 0);
