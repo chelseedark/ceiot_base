@@ -1,4 +1,1 @@
-BAT0-acpi-0
-Adapter: ACPI interface
-in0:          10.00 V  
-
+{"coord":{"lon":-58.3772,"lat":-34.6132},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":18.46,"feels_like":18.74,"temp_min":17.22,"temp_max":18.88,"pressure":1017,"humidity":91},"visibility":10000,"wind":{"speed":5.14,"deg":110},"clouds":{"all":0},"dt":1682396325,"sys":{"type":1,"id":8224,"country":"AR","sunrise":1682418255,"sunset":1682457507},"timezone":-10800,"id":3435910,"name":"Buenos Aires","cod":200}

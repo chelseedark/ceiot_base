@@ -1,14 +1,14 @@
 #ifndef _config_
 
-#define API_IP        "192.168.1.10"
+#define API_IP        "192.168.0.179"
 #define API_PORT      "8080"
 #define API_IP_PORT   API_IP ":" API_PORT
 
-//#define WIFI_SSID     "Mendeleyev 2.4GHz"
-//#define WIFI_PASSWORD "dimitri1834"
+#define WIFI_SSID     "Telecentro-3680"
+#define WIFI_PASSWORD "telecentro10"
 
-#define WIFI_SSID     "Personal-WiFi-629-2.4Ghz"
-#define WIFI_PASSWORD "GyNmEV5y6t"
+//#define WIFI_SSID     "Personal-WiFi-629-2.4Ghz"
+//#define WIFI_PASSWORD "GyNmEV5y6t"
 
 #define DEVICE_ID     "Cele"
 
