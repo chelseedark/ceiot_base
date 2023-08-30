@@ -23,7 +23,7 @@ PURO ATAQUE, nada de andar pensando cómo corregir nada.
 
 Para cada etapa, si hay varias medidas posibles, ordenar dejando para lo último lo que se va a hacer en el siguiente paso.
 
-##Proyecto a evaluar https://drive.google.com/file/d/13oywnHMYzkZYbOrDkvb4XrXcFceKPUe4/view?usp=drive_link ---> (Planificación del proyecto)
+## Proyecto a evaluar [Link del proyecto](https://drive.google.com/file/d/13oywnHMYzkZYbOrDkvb4XrXcFceKPUe4/view?usp=drive_link) (Planificación del proyecto)
 
 Título del proyecto: Sistema de telemetría IoT para el monitoreo de una instalación solar fotovoltaica.
 
@@ -43,54 +43,54 @@ Las mediciones obtenidas de los sensores serán enviadas a un repositorio centra
 
 Objetivo del ataque: lectura incorrecta de sensores de irradiancia y temperatura
 
-1. Reconnaissance:
+### 1. Reconnaissance:
 En la etapa de reconocimiento, los atacantes llevan a cabo un análisis exhaustivo de la infraestructura de la instalación solar y del sistema de telemetría. Esto incluye la identificación de componentes clave involucrados en la recopilación y transmisión de datos, como los sensores de irradiancia y temperatura.
 
-Táctica: Reconnaissance
-Técnica: [T1595] Conduct Active Scanning (https://attack.mitre.org/techniques/T1595/)
-Código ATT&CK: T1595
+**Táctica:** Reconnaissance  
+**Técnica:** [T1595] Conduct Active Scanning (https://attack.mitre.org/techniques/T1595/)
+**Código ATT&CK:** T1595
 
-2. Weaponization:
--Los atacantes desarrollan un malware específicamente diseñado para afectar los nodos encargados de recopilar los datos de irradiancia y temperatura. Este malware incluirá el código necesario para realizar modificaciones aleatorias en los valores de estos sensores.
+### 2. Weaponization:
+Los atacantes desarrollan un malware específicamente diseñado para afectar los nodos encargados de recopilar los datos de irradiancia y temperatura. Este malware incluirá el código necesario para realizar modificaciones aleatorias en los valores de estos sensores.
 
-Táctica: Initial Access
-Técnica: [T1204] User Execution (https://attack.mitre.org/techniques/T1204/)
-Código ATT&CK: T1204
+**Táctica:** Initial Access
+**Técnica:** [T1204] User Execution (https://attack.mitre.org/techniques/T1204/)
+**Código ATT&CK:** T1204
 
-3. Delivery:
+### 3. Delivery:
 Para introducir el malware en el sistema, los atacantes llevan a cabo tácticas de entrega, tales como el envío de correos electrónicos de phishing personalizados. Estos correos electrónicos contendrán archivos adjuntos que, en apariencia, son actualizaciones legítimas para el software de monitoreo. En realidad, estos archivos contienen el malware.
 
-Táctica: Initial Access
-Técnica: [T1566.001] Spearphishing Attachment (https://attack.mitre.org/techniques/T1566/001/)
-Código ATT&CK: T1566.001
+**Táctica:** Initial Access
+**Técnica:** [T1566.001] Spearphishing Attachment (https://attack.mitre.org/techniques/T1566/001/)
+**Código ATT&CK:** T1566.001
 
-4. Exploit:
+### 4. Exploit:
 Durante la fase de explotación, el malware aprovecha vulnerabilidades en el software de monitoreo para infiltrarse en los nodos responsables de recopilar los datos de los sensores. Estas vulnerabilidades pueden incluir debilidades en el manejo de entradas o problemas de seguridad en el software subyacente.
 
-Táctica: Execution
-Técnica: [T1203] Exploitation for Client Execution (https://attack.mitre.org/techniques/T1203/)
-Código ATT&CK: T1203
+**Táctica:** Execution
+**Técnica:** [T1203] Exploitation for Client Execution (https://attack.mitre.org/techniques/T1203/)
+**Código ATT&CK:** T1203
 
-5. Installation:
+### 5. Installation:
 Una vez que el malware ha ingresado a los nodos, se instala y ejecuta de manera encubierta. Se utiliza la técnica de "Command and Scripting Interpreter" para ejecutar comandos maliciosos en los sistemas afectados.
 
-Táctica: Execution
-Técnica: [T1059] Command and Scripting Interpreter (https://attack.mitre.org/techniques/T1059/)
-Código ATT&CK: T1059
+**Táctica:** Execution
+**Técnica:** [T1059] Command and Scripting Interpreter (https://attack.mitre.org/techniques/T1059/)
+**Código ATT&CK:** T1059
 
-6. Command & Control:
+### 6. Command & Control:
 El malware establece una conexión con un servidor de comando y control controlado por los atacantes. Esto permite a los atacantes enviar comandos al malware y recibir información sobre el estado de los nodos y los datos de irradiancia y temperatura.
 
-Táctica: Command and Control https://attack.mitre.org/tactics/TA0011/
-Técnica: [T1043] Commonly Used Port
-Código ATT&CK: T1043
+**Táctica:** Command and Control (https://attack.mitre.org/tactics/TA0011/)
+**Técnica:** [T1043] Commonly Used Port
+**Código ATT&CK:** T1043
 
-7. Actions on Objectives:
+### 7. Actions on Objectives:
 Finalmente, los atacantes pueden utilizar la técnica de "Defacement" para alterar los valores de los sensores de irradiancia y temperatura. Estos cambios aleatorios pueden resultar en una presentación inexacta de los niveles reales de generación de energía solar.
 
-Táctica: Impact
-Técnica: [T1491] Defacement
-Código ATT&CK: T1491
+**Táctica:** Impact
+**Técnica:** [T1491] Defacement
+**Código ATT&CK:** T1491
 
 ## Datos trabajo práctico
 
@@ -99,6 +99,7 @@ link
 Muy breve descripción
 
 ## Resolución
+
 
 
   
