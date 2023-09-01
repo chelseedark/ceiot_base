@@ -43,62 +43,35 @@ Las mediciones obtenidas de los sensores serán enviadas a un repositorio centra
 
 Objetivo del ataque: lectura incorrecta de sensores de irradiancia y temperatura
 
-### 1. Reconnaissance:
-En la etapa de reconocimiento, los atacantes llevan a cabo un análisis exhaustivo de la infraestructura de la instalación solar y del sistema de telemetría. Esto incluye la identificación de componentes clave involucrados en la recopilación y transmisión de datos, como los sensores de irradiancia y temperatura.
+# Escenario de Ataque en Primera Persona - Planta Solar Fotovoltaica
 
-**Táctica:** Reconnaissance  
-**Técnica:** [T1595] Conduct Active Scanning (https://attack.mitre.org/techniques/T1595/)
-**Código ATT&CK:** T1595
+## Fases del Ataque
 
-### 2. Weaponization:
-Los atacantes desarrollan un malware específicamente diseñado para afectar los nodos encargados de recopilar los datos de irradiancia y temperatura. Este malware incluirá el código necesario para realizar modificaciones aleatorias en los valores de estos sensores.
+### Reconnaissance
+1. **Reconnaissance ([T1590](https://attack.mitre.org/techniques/T1590)):** realizo una investigación detallada sobre la planta solar en FUNINTEC para identificar sus sistemas y vulnerabilidades específicas.
 
-**Táctica:** Initial Access
-**Técnica:** [T1204] User Execution (https://attack.mitre.org/techniques/T1204/)
-**Código ATT&CK:** T1204
+### Weaponization
+2. **Weaponization ([T1588](https://attack.mitre.org/techniques/T1588)):** preparo un archivo malicioso (por ejemplo, un documento de Word) con una carga útil de malware oculta.
 
-### 3. Delivery:
-Para introducir el malware en el sistema, los atacantes llevan a cabo tácticas de entrega, tales como el envío de correos electrónicos de phishing personalizados. Estos correos electrónicos contendrán archivos adjuntos que, en apariencia, son actualizaciones legítimas para el software de monitoreo. En realidad, estos archivos contienen el malware.
+### Delivery
+3. **Delivery ([T1566.001](https://attack.mitre.org/techniques/T1566/001)):** envío correos de phishing personalizados a empleados del FUNINTEC, adjuntando el archivo malicioso con un nombre relacionado con actualizaciones de firmware.
 
-**Táctica:** Initial Access
-**Técnica:** [T1566.001] Spearphishing Attachment (https://attack.mitre.org/techniques/T1566/001/)
-**Código ATT&CK:** T1566.001
+### Exploit
+4. **Exploitation of Vulnerability ([T1203](https://attack.mitre.org/techniques/T1203)):** el empleado abre el archivo adjunto, lo que aprovecho para explotar una vulnerabilidad en el software y ejecutar el malware en su sistema.
 
-### 4. Exploit:
-Durante la fase de explotación, el malware aprovecha vulnerabilidades en el software de monitoreo para infiltrarse en los nodos responsables de recopilar los datos de los sensores. Estas vulnerabilidades pueden incluir debilidades en el manejo de entradas o problemas de seguridad en el software subyacente.
+### Installation
+5. **Execution through API ([T1203.001](https://attack.mitre.org/techniques/T1203/001)):** el malware se ejecuta y establece una cuenta de usuario persistente en los nodos de telemetría comprometidos.
 
-**Táctica:** Execution
-**Técnica:** [T1203] Exploitation for Client Execution (https://attack.mitre.org/techniques/T1203/)
-**Código ATT&CK:** T1203
+### Command & Control
+6. **Commonly Used Port ([T1043](https://attack.mitre.org/techniques/T1043)):** el malware establece una conexión de comando y control a través de un puerto comúnmente utilizado para mantener el acceso y control encubiertos.
 
-### 5. Installation:
-Una vez que el malware ha ingresado a los nodos, se instala y ejecuta de manera encubierta. Se utiliza la técnica de "Command and Scripting Interpreter" para ejecutar comandos maliciosos en los sistemas afectados.
+### Actions on Objectives
+7. **Discovery ([T1016](https://attack.mitre.org/techniques/T1016)):** exploro la red y busco el repositorio central en la nube donde se almacenan los datos de los sensores.
+8. **Data Manipulation ([T1565](https://attack.mitre.org/techniques/T1565)):** Manipulo los datos en el repositorio central, alterando las lecturas de irradiancia y temperatura para que parezcan fuera de los rangos normales.
+9. **Impact ([T1499](https://attack.mitre.org/techniques/T1499)):** como resultado de la manipulación de datos, disminuyo la eficiencia y la rentabilidad de la planta solar, afectando su capacidad para abastecer las instalaciones del FUNINTEC.
 
-**Táctica:** Execution
-**Técnica:** [T1059] Command and Scripting Interpreter (https://attack.mitre.org/techniques/T1059/)
-**Código ATT&CK:** T1059
 
-### 6. Command & Control:
-El malware establece una conexión con un servidor de comando y control controlado por los atacantes. Esto permite a los atacantes enviar comandos al malware y recibir información sobre el estado de los nodos y los datos de irradiancia y temperatura.
 
-**Táctica:** Command and Control (https://attack.mitre.org/tactics/TA0011/)
-**Técnica:** [T1043] Commonly Used Port
-**Código ATT&CK:** T1043
-
-### 7. Actions on Objectives:
-Finalmente, los atacantes pueden utilizar la técnica de "Defacement" para alterar los valores de los sensores de irradiancia y temperatura. Estos cambios aleatorios pueden resultar en una presentación inexacta de los niveles reales de generación de energía solar.
-
-**Táctica:** Impact
-**Técnica:** [T1491] Defacement
-**Código ATT&CK:** T1491
-
-## Datos trabajo práctico
-
-link
-
-Muy breve descripción
-
-## Resolución
 
 
 
