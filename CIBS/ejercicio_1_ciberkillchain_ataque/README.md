@@ -25,7 +25,7 @@ Para cada etapa, si hay varias medidas posibles, ordenar dejando para lo último
 
 ## Proyecto a evaluar [Link del proyecto](https://drive.google.com/file/d/13oywnHMYzkZYbOrDkvb4XrXcFceKPUe4/view?usp=drive_link) (Planificación del proyecto)
 
-Título del proyecto: Sistema de telemetría IoT para el monitoreo de una instalación solar fotovoltaica.
+## Título del proyecto: Sistema de telemetría IoT para el monitoreo de una instalación solar fotovoltaica.
 
 1. Descripción técnica-conceptual del proyecto a realizar
 
