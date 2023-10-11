@@ -48,10 +48,10 @@ Objetivo del ataque: lectura incorrecta de sensores de irradiancia y temperatura
 ## Fases del Ataque
 
 ### Reconnaissance
-1. **Reconnaissance ([T1590](https://attack.mitre.org/techniques/T1590)):** realizo una investigación detallada sobre la planta solar en FUNINTEC para identificar sus sistemas y vulnerabilidades específicas.
+1. **Reconnaissance ([T1590.001](https://attack.mitre.org/techniques/T1590/001/)):** realizo una investigación detallada sobre la planta solar en FUNINTEC para identificar sus sistemas y vulnerabilidades específicas.
 
 ### Weaponization
-2. **Weaponization ([T1588](https://attack.mitre.org/techniques/T1588)):** preparo un archivo malicioso (por ejemplo, un documento de Word) con una carga útil de malware oculta.
+2. **Weaponization ([T1588.001](https://attack.mitre.org/techniques/T1588/001/)):** preparo un archivo malicioso (por ejemplo, un documento de Word) con una carga útil de malware oculta.
 
 ### Delivery
 3. **Delivery ([T1566.001](https://attack.mitre.org/techniques/T1566/001)):** envío correos de phishing personalizados a empleados del FUNINTEC, adjuntando el archivo malicioso con un nombre relacionado con actualizaciones de firmware.
@@ -63,12 +63,12 @@ Objetivo del ataque: lectura incorrecta de sensores de irradiancia y temperatura
 5. **Execution through API ([T1203.001](https://attack.mitre.org/techniques/T1203/001)):** el malware se ejecuta y establece una cuenta de usuario persistente en los nodos de telemetría comprometidos.
 
 ### Command & Control
-6. **Commonly Used Port ([T1043](https://attack.mitre.org/techniques/T1043)):** el malware establece una conexión de comando y control a través de un puerto comúnmente utilizado para mantener el acceso y control encubiertos.
+6. **Commonly Used Port ([T1571](https://attack.mitre.org/techniques/T1571/)):** el malware establece una conexión de comando y control a través de un puerto comúnmente utilizado para mantener el acceso y control encubiertos.
 
 ### Actions on Objectives
-7. **Discovery ([T1016](https://attack.mitre.org/techniques/T1016)):** exploro la red y busco el repositorio central en la nube donde se almacenan los datos de los sensores.
-8. **Data Manipulation ([T1565](https://attack.mitre.org/techniques/T1565)):** Manipulo los datos en el repositorio central, alterando las lecturas de irradiancia y temperatura para que parezcan fuera de los rangos normales.
-9. **Impact ([T1499](https://attack.mitre.org/techniques/T1499)):** como resultado de la manipulación de datos, disminuyo la eficiencia y la rentabilidad de la planta solar, afectando su capacidad para abastecer las instalaciones del FUNINTEC.
+7. **Discovery ([T1016.001](https://attack.mitre.org/techniques/T1016/001/)):** exploro la red y busco el repositorio central en la nube donde se almacenan los datos de los sensores.
+8. **Data Manipulation ([T1565.001](https://attack.mitre.org/techniques/T1565/001/)):** Manipulo los datos en el repositorio central, alterando las lecturas de irradiancia y temperatura para que parezcan fuera de los rangos normales.
+9. **Impact ([T1499.001](https://attack.mitre.org/techniques/T1499/001/)):** como resultado de la manipulación de datos, disminuyo la eficiencia y la rentabilidad de la planta solar, afectando su capacidad para abastecer las instalaciones del FUNINTEC.
 
 
 
